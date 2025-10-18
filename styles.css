@@ -1,0 +1,196 @@
+/*
+COLOR PALETTE
+Choose a color palette and paste the hex codes here to use below
+https://coolors.co/fac9b8-e5d4c0-c5decd-a1e8cc-495159
+
+#343434 Dark color for fonts on a light background
+#F7FFF7 light color for fonts on a dark background
+Add the rest here and use them to create your variables.
+#FAC9B8 - pale dogwood
+#E5D4C0 - almond
+#C5DECD - honeydew
+#A1E8CC - aquamarine
+#495159 - outer space
+*/
+
+/* Global styles
+------------------------------------*/
+
+:root {
+  /* We will use variables for the colors
+     Set your variables and update the css below. */
+  --primary-dark-color: #343434;
+  --primary-light-color: #F7FFF7;
+  --header-background: #495159; /* outer space */
+  --education-background: #C5DECD; /* honeydew */
+  --project-background: #A1E8CC; /* aquamarine */
+  --project-button-hover: #FAC9B8; /* pale dogwood */
+  --project-button: #E5D4C0; /* almond */
+  
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  color: var(--primary-dark-color);
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+img {
+  width: 300px;
+}
+a {
+  color: blue;
+}
+a:hover {
+  text-decoration: none;
+}
+h1 {
+  font-size: 5em;
+  line-height: 1;
+}
+h2 {
+  font-size: 1.25em;
+}
+header h2 {
+  font-size: 2em;
+}
+h1,
+h2 {
+  font-weight: 700;
+  margin: 0;
+}
+.content-wrap {
+  max-width: 800px;
+  width: 85%;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+h3 {
+  margin-bottom: 0;
+}
+.item-details h3 + p {
+  font-style: italic;
+}
+.item-details h3 ~ p {
+  margin: 0;
+}
+.divider > section {
+  border-bottom: 1px dashed var(--primary-dark-color);
+  padding: 25px 0;
+}
+.divider > section:last-of-type {
+  border-bottom: none;
+}
+
+/* Profile
+  ------------------------------------*/
+header {
+  background: var(--header-background);
+  color: var(--primary-light-color); 
+  
+}
+
+/* Projects
+  ------------------------------------*/
+.projects {
+  background: var(--project-background);
+}
+.projects a {
+  color: black; /* where is this used? */
+}
+
+.projects .btn {
+  color: blue;
+  background: var(--project-button);
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 10px;
+  display: inline-block;
+}
+.projects .btn:hover {
+  background: var(--project-button-hover);
+}
+.project-item {
+  overflow: hidden;
+}
+.project-item h3 {
+  margin-top: 0;
+}
+
+/* Education & certifications
+  ------------------------------------*/
+.education {
+  background-color: var(--education-background);
+  background-position: top right;
+  padding-bottom: 100px;
+}
+.education p {
+  width: 60%;
+}
+
+/* Contact Info
+  ------------------------------------*/
+footer {
+  background: var(--primary-dark-color);
+  color: var(--primary-light-color);
+}
+.contact-list {
+  list-style-type: none;
+  padding: 0;
+}
+.contact-list a {
+  padding: 15px;
+  display: inline-block;
+  color: var(--primary-light-color);
+}
+
+/* Responsive
+------------------------------------*/
+@media screen and (min-width: 750px) {
+  header,
+  footer {
+    text-align: center;
+  }
+  .project-item img {
+    float: left;
+    margin-right: 20px;
+  }
+
+  .job-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 20px;
+  }
+  .contact-list {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  h1 {
+    font-size: 2em;
+    line-height: 0.9;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 1.2em;
+    line-height: 1;
+  }
+  .contact-list a {
+    padding: 5px;
+  }
+  img {
+    width: 200px;
+  }
+}

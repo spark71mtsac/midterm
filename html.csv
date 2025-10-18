@@ -1,0 +1,14 @@
+﻿Question,Answer
+<html> </html>,Encloses the entire HTML document
+<head> </head>,Encloses the head of the HTML document
+<title> </title>,Indicates the title of the document
+<body> </body>,Encloses the body of the HTML document
+<p> </p>,Encloses a paragraph
+<br>,Indicates a line break
+<hr>,Displays a horizontal rule
+<h1> </h1>,Encloses a first-level heading
+<h2> </h2>,Encloses a second-level heading
+<h3> </h3>,Encloses a third-level heading
+<h4> </h4>,Encloses a fourth-level heading
+<h5> </h5>,Encloses a fifth-level heading
+<h6> </h6>,Encloses a sixth-level heading

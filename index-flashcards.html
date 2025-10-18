@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flashcard App</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    #card { border: 1px solid #ccc; padding: 20px; width: 300px; margin: auto; }
+    button, select { margin-top: 20px; }
+    #feedback { font-weight: bold; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Flashcard App</h1>
+
+  <label for="fileSelect">Choose a flashcard set:</label>
+  <select id="fileSelect" onchange="loadSelectedFile()">
+    <option value="">-- Select a file --</option>
+    <option value="html.csv">html.csv</option>
+    <option value="css.csv">css.csv</option>
+
+  </select>
+
+  <div id="card">
+    <p id="question">Please select a file</p>
+    <input type="text" id="answerInput" placeholder="Your definition answer">
+    <br>
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="feedback"></p>
+    <button onclick="nextCard()">Next</button>
+  </div>
+
+  <script>
+    let flashcards = [];
+    let currentIndex = 0;
+
+    function loadSelectedFile() {
+      const selectedFile = document.getElementById('fileSelect').value;
+      if (!selectedFile) return;
+
+      fetch(selectedFile)
+        .then(response => response.text())
+        .then(data => {
+          const lines = data.trim().split('\n').slice(1); // skip header
+          flashcards = lines.map(line => {
+            const [question, answer] = line.split(',');
+            return { question: question.trim(), answer: answer.trim() };
+          });
+          currentIndex = 0;
+          nextCard();
+        })
+        .catch(error => {
+          document.getElementById('question').textContent = '⚠️ Error loading file';
+          console.error('Error:', error);
+        });
+    }
+
+    function nextCard() {
+      if (flashcards.length === 0) return;
+      document.getElementById('feedback').textContent = '';
+      const card = flashcards[currentIndex];
+      document.getElementById('question').textContent = card.question;
+      document.getElementById('answerInput').value = '';
+      currentIndex = (currentIndex + 1) % flashcards.length;
+    }
+
+    function checkAnswer() {
+      if (flashcards.length === 0) return;
+      const userAnswer = document.getElementById('answerInput').value.trim().toLowerCase();
+      const correctAnswer = flashcards[(currentIndex - 1 + flashcards.length) % flashcards.length].answer.trim().toLowerCase();
+      const feedback = document.getElementById('feedback');
+      feedback.textContent = userAnswer === correctAnswer ? '✅ Correct!' : `❌ Incorrect. Answer: ${correctAnswer}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+﻿Question,Answer
+margin and padding,for adding space around elements
+align and float,for placing your elements in relationship to others
+margin-top,sets the top margin
+margin-right,sets the right margin
+margin-left,sets the left margin
+margin-bottom,sets the bottom margin
+margin,sets the top, right, bottom, and left margins as a single property
+
